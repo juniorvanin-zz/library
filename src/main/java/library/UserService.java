@@ -3,10 +3,7 @@ package library;
 import com.google.gson.Gson;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,11 +13,12 @@ public class UserService {
 
     private HttpClient httpClient;
 
+
     public UserService(HttpClient httpClient) {
         this.httpClient = httpClient;
     }
 
-    public List<User> searchByName(String name) throws Exception {
+    public List<User> searchByName(String name) throws InterruptedException, IOException, URISyntaxException {
         String response = httpClient.get("https://jsonplaceholder.typicode.com/users");
 
         User[] users = gson.fromJson(response, User[].class);
@@ -29,6 +27,8 @@ public class UserService {
                 .filter(user -> user.getName().contains(name))
                 .collect(Collectors.toList());
     }
+
+
 
 
     // delete
