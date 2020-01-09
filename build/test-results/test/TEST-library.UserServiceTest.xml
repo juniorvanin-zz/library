@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="library.UserServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-01-08T21:23:46" hostname="DESKTOP-TDARQNU" time="0.033">
+<testsuite name="library.UserServiceTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-01-08T23:09:45" hostname="DESKTOP-TDARQNU" time="0.031">
   <properties/>
-  <testcase name="uriExceptionByHttp" classname="library.UserServiceTest" time="0.011"/>
+  <testcase name="uriExceptionByHttp" classname="library.UserServiceTest" time="0.01"/>
   <testcase name="interruptedExceptionByHttp" classname="library.UserServiceTest" time="0.001"/>
-  <testcase name="returnEmptyIfDontFindUser" classname="library.UserServiceTest" time="0.014"/>
+  <testcase name="returnUserById" classname="library.UserServiceTest" time="0.008"/>
+  <testcase name="returnEmptyIfDontFindById" classname="library.UserServiceTest" time="0.002"/>
+  <testcase name="returnUserByUsername" classname="library.UserServiceTest" time="0.002"/>
+  <testcase name="returnEmptyIfDontFindByUsername" classname="library.UserServiceTest" time="0.002"/>
   <testcase name="callUserApi" classname="library.UserServiceTest" time="0.001"/>
-  <testcase name="ioExceptionByHttp" classname="library.UserServiceTest" time="0.002"/>
-  <testcase name="returnUserByName" classname="library.UserServiceTest" time="0.003"/>
+  <testcase name="returnEmptyIfDontFindByName" classname="library.UserServiceTest" time="0.002"/>
+  <testcase name="ioExceptionByHttp" classname="library.UserServiceTest" time="0.001"/>
+  <testcase name="returnUserByName" classname="library.UserServiceTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -18,17 +18,41 @@ public class UserService {
         this.httpClient = httpClient;
     }
 
-    public List<User> searchByName(String name) throws InterruptedException, IOException, URISyntaxException {
+    public User[] getUsersFromJson() throws InterruptedException, IOException, URISyntaxException {
+
         String response = httpClient.get("https://jsonplaceholder.typicode.com/users");
 
-        User[] users = gson.fromJson(response, User[].class);
+        return gson.fromJson(response, User[].class);
+    }
+
+    public List<User> searchByName(String name) throws InterruptedException, IOException, URISyntaxException {
+
+        User[] users = getUsersFromJson();
 
         return Arrays.asList(users).stream()
                 .filter(user -> user.getName().contains(name))
                 .collect(Collectors.toList());
     }
 
+    public List<User> searchById(int id) throws InterruptedException, IOException, URISyntaxException {
 
+        User[] users = getUsersFromJson();
+
+        return Arrays.asList(users).stream()
+                .filter(user -> {
+                    return user.getId() == id ? true : false;
+                })
+                .collect(Collectors.toList());
+    }
+
+    public List<User> searchByUsername(String username) throws InterruptedException, IOException, URISyntaxException {
+
+        User[] users = getUsersFromJson();
+
+        return Arrays.asList(users).stream()
+                .filter(user -> user.getUsername().equals(username))
+                .collect(Collectors.toList());
+    }
 
 
     // delete
